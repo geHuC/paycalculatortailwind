@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Pay Calculator</title>
+</head>
+<body>
+    <div class="bg-gradient-to-b from-gray-200 to-white w-screen h-screen min-h-screen p-5 flex flex-col">
+        <div class="w-full text-center p-2 md:p-8 md:h-1/5 flex flex-col justify-end">
+            <h1 class="text-3xl md:text-5xl text-blue-600"><strong>Pay Calculator</strong></h1> <!-- fontweights don't seem to work properly in tailwind-->
+        </div>
+        <div class="md:w-2/3 w-full mx-auto shadow-xl rounded-md bg-white p-0 flex flex-row flex-wrap">
+            <div class="md:w-2/5 w-full bg-blue-500 shadow-md text-white rounded-md flex flex-col p-2 md:p-10 md:rounded-r-none">
+                <label for="hours" class="font-semibold text-xl flex flex-col pb-1">Hours worked:</label>
+                <input type="number" step="0.01" name="hours" placeholder="Hours worked..." class="p-1 px-3 rounded-md text-blue-700 md:h-12 md:text-xl">
+                <div class="md:p-4"></div>
+                <label for="rate" class="font-semibold text-xl flex flex-col pb-1">Rate of pay per hour:</label>
+                <input type="number" step="0.01" name="rate" placeholder="Hourly rate..." class="p-1 px-3 rounded-md text-blue-700 md:h-12 md:text-xl">
+            </div>
+            <div class="md:w-3/5 w-full mx-auto shadow-md rounded-md p-6 md:rounded-l-none md:border-2 md:border-blue-500 flex flex-col">
+                <div class="flex justify-center flex-wrap">
+                    <p class="text-center w-full text-4xl text-blue-800">Your total pay will be:</p>
+                    <p class="text-center w-full text-5xl md:mt-3" id="total-pay">0.00 ₤</p>
+                </div>             
+                <hr class="block w-full mb-4 border-0 border-t border-gray-300 mb-4 mt-4" />
+                <div calss="flex justify-center flex-wrap w-full">
+                    <div class="w-full flex flex-row justify-center">
+                        <label for="currency" class="w-full md:w-2/5 text-right p-2 font-medium text-blue-800">Conver to other currency:</label>
+                        <select name="currency" id="currency-selector" class="w-full md:w-2/5 bg-gray-100 rounded-md p-2">
+                            <option value="select">Select currency</option>
+                        </select>
+                    </div>
+                    <div class="w-full invisible" id="conversion-container">
+                        <div class="w-full flex flex-row justify-center mt-3">
+                            <p class="w-full md:w-2/5 text-right p-2 font-medium text-blue-800">About:</p>
+                            <p class="w-full md:w-2/5 p-2 font-bold" id="conversion-result">0.00</p>
+                        </div>
+                        <div class="w-full flex flex-col">
+                            <small class="font-thin text-gray-400 text-center w-full" id="exchange-rate">1 GBP ≈ 1 GBP</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
+<script type="module" src="/src/app.js"></script>
+</html>
